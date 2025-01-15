@@ -30,6 +30,7 @@ def takeCommand():
 
 if __name__ == '__main__':
     say("Hello, I am Jarvis A I")
+    say(query)
 
 
 
