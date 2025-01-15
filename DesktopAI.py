@@ -30,7 +30,13 @@ def takeCommand():
 
 if __name__ == '__main__':
     say("Hello, I am Jarvis A I")
-    say(query)
+    while True:
+        query = takeCommand()  # Call the function to listen and process the user's command
+        print(f"query: {query}")
+        #say(query)
+        if "Open YouTube".lower() in query.lower():
+          say(f"Opening YouTube  ")
+          webbrowser.open("https://youtube.com")
 
 
 
