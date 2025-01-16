@@ -34,9 +34,12 @@ if __name__ == '__main__':
         query = takeCommand()  # Call the function to listen and process the user's command
         print(f"query: {query}")
         #say(query)
-        if "Open YouTube".lower() in query.lower():
-          say(f"Opening YouTube  ")
-          webbrowser.open("https://youtube.com")
+        sites=[['Youtube',"https://youtube.com"],["wikipedia","https://wikipedia.com"],["google","https://google.com"]]
+        for site in sites:
+            if f"Open {site[0]}".lower() in query.lower():
+                say(f"Opening {site[0]}  ")
+                webbrowser.open(site[1])
+
 
 
 
