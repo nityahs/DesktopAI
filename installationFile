@@ -1,5 +1,0 @@
-pip install speechrecognition
-pip install Wikipedia
-pip install openai
-pip install pyaudio
-pip install pyttsx3
