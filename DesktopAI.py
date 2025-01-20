@@ -39,6 +39,10 @@ if __name__ == '__main__':
             if f"Open {site[0]}".lower() in query.lower():
                 say(f"Opening {site[0]}  ")
                 webbrowser.open(site[1])
+        if "Play music" in query:
+            say("Playing Music: ")
+            musicpath=r"Enter Location"
+            os.startfile(musicpath)
 
 
 
