@@ -43,6 +43,10 @@ if __name__ == '__main__':
             say("Playing Music: ")
             musicpath=r"Enter Location"
             os.startfile(musicpath)
+        if "time" in query:
+            tim=datetime.datetime.now().strftime("%H:%M")
+            say(f"Time is: {tim}")
+            print(f"Time is: {tim}")
 
 
 
