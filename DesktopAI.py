@@ -2,6 +2,9 @@ import pyttsx3
 import speech_recognition as sr
 import webbrowser
 import openai
+import os
+import datetime
+import keyboard
 #use webdriver to log into your account
 def say(text):
     # Initialize the text-to-speech engine
@@ -35,24 +38,27 @@ if __name__ == '__main__':
         print(f"query: {query}")
         #say(query)
         sites=[['Youtube',"https://youtube.com"],["wikipedia","https://wikipedia.com"],["google","https://google.com"]]
+        apps=[['Teams',r"C:\Users\Nitya Shah\AppData\Local\Microsoft\WindowsApps\MSTeams_8wekyb3d8bbwe\ms-teams.exe"],['PyCharm',r"C:\Program Files\JetBrains\PyCharm 2023.2.3\bin\pycharm64.exe"]]
         for site in sites:
             if f"Open {site[0]}".lower() in query.lower():
                 say(f"Opening {site[0]}  ")
                 webbrowser.open(site[1])
+
         if "Play music" in query:
             say("Playing Music: ")
-            musicpath=r"Enter Location"
+            musicpath=r"C:\Users\Nitya Shah\Downloads\testsong.mps.mp3"
             os.startfile(musicpath)
         if "time" in query:
             tim=datetime.datetime.now().strftime("%H:%M")
             say(f"Time is: {tim}")
             print(f"Time is: {tim}")
-        if "open teams".lower() in query.lower():
-            say("Opening Teams")
-            teams=r"C:\Users\Nitya Shah\AppData\Local\Microsoft\WindowsApps\MSTeams_8wekyb3d8bbwe\ms-teams.exe"
-            os.startfile(teams)
-
-
-
+        for app in apps:
+            if f"open {app[0]}".lower() in query.lower():
+                say(f"Opening {app[0]}")
+                os.startfile(app[1])
+        if keyboard.is_pressed("esc"):
+            say("Goodbye!")
+            print("Exiting program...")
+            break
 
 
