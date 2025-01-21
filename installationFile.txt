@@ -1,6 +1,7 @@
 pip install speechrecognition
 pip install Wikipedia
-pip install openai if you want to use chatgpt[openai]
-pip install -q -U google-generativeai if you want to use gemini
+pip install openai (if you want to use chatgpt[openai])
+pip install -q -U google-generativeai (if you want to use gemini)
 pip install pyaudio
 pip install pyttsx3
+pip install keyboard
