@@ -47,6 +47,10 @@ if __name__ == '__main__':
             tim=datetime.datetime.now().strftime("%H:%M")
             say(f"Time is: {tim}")
             print(f"Time is: {tim}")
+        if "open teams".lower() in query.lower():
+            say("Opening Teams")
+            teams=r"C:\Users\Nitya Shah\AppData\Local\Microsoft\WindowsApps\MSTeams_8wekyb3d8bbwe\ms-teams.exe"
+            os.startfile(teams)
 
 
 
