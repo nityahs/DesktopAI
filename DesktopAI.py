@@ -1,10 +1,12 @@
 import pyttsx3
 import speech_recognition as sr
 import webbrowser
-import openai
+import google.generativeai as genai
+from config import api_keypriv
 import os
 import datetime
 import keyboard
+genai.configure(api_key=api_keypriv)
 #use webdriver to log into your account
 def say(text):
     # Initialize the text-to-speech engine
@@ -30,7 +32,23 @@ def takeCommand():
         except sr.RequestError:
             print("Could not request results, check your internet connection.")
             return "Some error occured"
+def useAI(inp):
+    try:
+        model = genai.GenerativeModel("gemini-1.5-flash")
+        chat = model.start_chat(
+            history=[
+                {"role": "user", "parts": "Hello"},
+                {"role": "model", "parts": "Great to meet you. What would you like to know?"},
+            ]
+        )
 
+
+        a=chat.send_message(inp)
+        print(a.text)
+
+        return a.text
+    except UnknownValueError:
+        print("Invalid Value")
 if __name__ == '__main__':
     say("Hello, I am Jarvis A I")
     while True:
