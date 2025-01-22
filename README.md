@@ -66,3 +66,5 @@ Report Time: Say "What time is it?" or "Tell me the time".
 AI Interaction: Say "Use AI" followed by your query.
 
 Exit: Press the ESC key.
+
+![image](https://github.com/user-attachments/assets/8b1fe63f-1c39-425c-892f-0378fb641633)
