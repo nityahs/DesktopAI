@@ -35,6 +35,7 @@ def takeCommand():
 def useAI(inp):
     try:
         model = genai.GenerativeModel("gemini-1.5-flash")
+        system_instruction="You are a Desktop Assistant. Your name is Jarvis."
         chat = model.start_chat(
             history=[
                 {"role": "user", "parts": "Hello"},
@@ -62,11 +63,11 @@ if __name__ == '__main__':
                 say(f"Opening {site[0]}  ")
                 webbrowser.open(site[1])
 
-        if "Play music" in query:
+        if "Play music".lower() in query.lower():
             say("Playing Music: ")
             musicpath=r"C:\Users\Nitya Shah\Downloads\testsong.mps.mp3"
             os.startfile(musicpath)
-        if "time" in query:
+        if "time".lower() in query.lower():
             tim=datetime.datetime.now().strftime("%H:%M")
             say(f"Time is: {tim}")
             print(f"Time is: {tim}")
@@ -78,5 +79,6 @@ if __name__ == '__main__':
             say("Goodbye!")
             print("Exiting program...")
             break
-
-
+        if "Use AI".lower() in query.lower():
+            ans=useAI(query)
+            say(ans)
